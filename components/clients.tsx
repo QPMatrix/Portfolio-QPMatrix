@@ -1,6 +1,7 @@
 import React from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
-import { companies, testimonials } from "@/data";
+import { companies, techStacks, testimonials } from "@/data";
+import { InfiniteTechStacks } from "./ui/infinite-tech-stacks";
 
 const Clients = () => {
   return (
@@ -14,6 +15,13 @@ const Clients = () => {
           direction="right"
           speed="slow"
         />
+      </div>
+      <h1 className="heading mt-20">
+        Some of the <span className="text-purple">technology stacks</span> I've
+        worked with
+      </h1>
+      <div className="flex flex-col items-center max-lg:mt-10 ">
+        <InfiniteTechStacks items={techStacks} direction="right" speed="slow" />
       </div>
     </div>
   );

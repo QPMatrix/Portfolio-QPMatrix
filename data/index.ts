@@ -210,3 +210,110 @@ export const socialMedia = [
     link: "https://wa.link/zco2t3",
   },
 ];
+export const techStacks = [
+  {
+    id: 1,
+    name: "React",
+    img: "/re.svg",
+  },
+  {
+    id: 2,
+    name: "Next.js",
+    img: "/next.svg",
+  },
+  {
+    id: 3,
+    name: "TailwindCSS",
+    img: "/tail.svg",
+  },
+  {
+    id: 4,
+    name: "Framer Motion",
+    img: "/fm.svg",
+  },
+  {
+    id: 5,
+    name: "Typescript",
+    img: "/ts.svg",
+  },
+  {
+    id: 6,
+    name: "Node.js",
+    img: "/node.svg",
+  },
+  {
+    id: 7,
+    name: "Express.js",
+    img: "/express.svg",
+  },
+  {
+    id: 8,
+    name: "MongoDB",
+    img: "/mongo.svg",
+  },
+  {
+    id: 9,
+    name: "Firebase",
+    img: "/firebase.svg",
+  },
+  {
+    id: 10,
+    name: "Docker",
+    img: "/dock.svg",
+  },
+  {
+    id: 11,
+    name: "Appwrite",
+    img: "/app.svg",
+  },
+  {
+    id: 12,
+    name: "Cloudinary",
+    img: "/cloud.svg",
+  },
+  {
+    id: 13,
+    name: "Stream",
+    img: "/s.svg",
+  },
+  {
+    id: 14,
+    name: "Hostinger",
+    img: "/host.svg",
+  },
+  {
+    id: 15,
+    name: "Expo",
+    img: "/expo.png",
+  },
+  {
+    id: 16,
+    name: "Bun",
+    img: "/Bun.svg",
+  },
+  {
+    id: 16,
+    name: "Java",
+    img: "/Java.svg",
+  },
+  {
+    id: 17,
+    name: "SQL",
+    img: "/SQL.svg",
+  },
+  {
+    id: 18,
+    name: "Redux",
+    img: "/Redux.svg",
+  },
+  {
+    id: 19,
+    name: "Azure",
+    img: "/Azure.svg",
+  },
+  {
+    id: 20,
+    name: "Python",
+    img: "/Python.svg",
+  },
+];
