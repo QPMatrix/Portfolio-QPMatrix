@@ -17,8 +17,8 @@ const Clients = () => {
         />
       </div>
       <h1 className="heading mt-20">
-        Some of the <span className="text-purple">technology stacks</span> I've
-        worked with
+        Some of the <span className="text-purple">technology stacks</span>{" "}
+        I&apos;ve worked with
       </h1>
       <div className="flex flex-col items-center max-lg:mt-10 ">
         <InfiniteTechStacks items={techStacks} direction="right" speed="slow" />
