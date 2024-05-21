@@ -72,38 +72,21 @@ export const gridItems = [
 export const projects = [
   {
     id: 1,
-    title: "3D Solar System Planets to Explore",
-    des: "Explore the wonders of our solar system with this captivating 3D simulation of the planets using Three.js.",
-    img: "/p1.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/fm.svg"],
-    link: "/ui.earth.com",
-    github: "www.qwerty.com",
+    title: "Aora",
+    des: "Aora is a platform where users can upload their generated videos from AI and share them with everyone.",
+    img: "/aora.png",
+    iconLists: ["/re.svg", "/tail.svg", "/expo.png", "/ts.svg"],
+    link: "/github/qpmatrix/aora",
+    github: "https://github.com/QPMatrix/Aora",
   },
+
   {
     id: 2,
-    title: "Yoom - Video Conferencing App",
-    des: "Simplify your video conferencing experience with Yoom. Seamlessly connect with colleagues and friends.",
+    title: "Al Waled Center",
+    des: "Its a website for a center that provides services for people with special needs.",
     img: "/p2.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/stream.svg", "/c.svg"],
-    link: "/ui.yoom.com",
-    github: "",
-  },
-  {
-    id: 3,
-    title: "AI Image SaaS - Canva Application",
-    des: "A REAL Software-as-a-Service app with AI features and a payments and credits system using the latest tech stack.",
-    img: "/p3.svg",
-    iconLists: ["/re.svg", "/tail.svg", "/ts.svg", "/three.svg", "/c.svg"],
-    link: "/ui.aiimg.com",
-    github: "",
-  },
-  {
-    id: 4,
-    title: "Animated Apple Iphone 3D Website",
-    des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects..",
-    img: "/p4.svg",
-    iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "/ui.apple.com",
+    iconLists: ["/wordpress.png"],
+    link: "https://al-waled.net/",
     github: "",
   },
 ];
@@ -111,33 +94,33 @@ export const projects = [
 export const testimonials = [
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Hasan's innovative solutions have revolutionized the way we approach our digital strategy. His dedication to crafting seamless user experiences is truly remarkable.",
+    name: "Yousef Al-Abd",
+    title: "Technology Director",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "The level of detail and efficiency Hasan brought to our project was outstanding. His technical expertise and creative vision are a rare combination that any company would treasure.",
+    name: "Ali Hamdi",
+    title: "Development Team Lead",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Hasan's approach to web development is both artistic and analytical. He has a unique ability to balance user-centric design with cutting-edge technology.",
+    name: "Samira Khaled",
+    title: "Project Manager",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Working with Hasan is a guarantee of quality and innovation. His problem-solving skills and technical knowledge are assets that have greatly benefited our projects.",
+    name: "Fatima Zahra",
+    title: "Product Manager",
   },
   {
     quote:
-      "Collaborating with Adrian was an absolute pleasure. His professionalism, promptness, and dedication to delivering exceptional results were evident throughout our project. Adrian's enthusiasm for every facet of development truly stands out. If you're seeking to elevate your website and elevate your brand, Adrian is the ideal partner.",
-    name: "Michael Johnson",
-    title: "Director of AlphaStream Technologies",
+      "Hasan  's strategic thinking and technical skills were instrumental in bringing our vision to life. His commitment to excellence is evident in every project he undertakes.",
+    name: "Mahmoud Abbas",
+    title: "Development Director",
   },
 ];
 
@@ -177,14 +160,14 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "FullStack Engineer Intern",
+    desc: "Assisted in the development of a web-based platform using Next.js, enhancing interactivity.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
+    title: "Mobile App Dev - QPMatrix",
     desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
@@ -209,13 +192,21 @@ export const socialMedia = [
   {
     id: 1,
     img: "/git.svg",
+    link: "https://github.com/QPMatrix",
   },
   {
     id: 2,
-    img: "/twit.svg",
+    img: "/insta.svg",
+    link: "https://www.instagram.com/hasan.ty02/",
   },
   {
     id: 3,
     img: "/link.svg",
+    link: "https://www.linkedin.com/in/hasantayar",
+  },
+  {
+    id: 3,
+    img: "/wha.svg",
+    link: "https://wa.link/zco2t3",
   },
 ];

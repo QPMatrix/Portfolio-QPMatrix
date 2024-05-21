@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import React, { useEffect, useState } from "react";
+import { FaStar } from "react-icons/fa6";
 
 export const InfiniteMovingCards = ({
   items,
@@ -105,15 +106,21 @@ export const InfiniteMovingCards = ({
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <span className="flex flex-col gap-1">
-                  <div className="me-3">
-                    <img src="/profile.svg" alt="profile" />
-                  </div>
                   <div className="flex flex-col gap-1">
                     <span className=" text-xl leading-[1.6] text-white font-bold">
                       {item.name}
                     </span>
                     <span className=" text-sm leading-[1.6] text-white-200 font-normal">
                       {item.title}
+                    </span>
+                    <span className="flex flex-row  ">
+                      <div className="flex justify-around items-center">
+                        <FaStar className="text-yellow-400 mr-2" />
+                        <FaStar className="text-yellow-400 mr-2" />
+                        <FaStar className="text-yellow-400 mr-2 " />
+                        <FaStar className="text-yellow-400 mr-2" />
+                        <FaStar className="text-yellow-400 mr-2" />
+                      </div>
                     </span>
                   </div>
                 </span>
