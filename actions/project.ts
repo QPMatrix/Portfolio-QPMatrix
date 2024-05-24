@@ -1,3 +1,4 @@
+"use server";
 import { db } from "@/utils/db";
 
 export const getProjects = async () => {
@@ -8,12 +9,12 @@ export const getProjects = async () => {
   }
 };
 export const getProjectById = async (id: number) => {
+  console.log(id);
   try {
-    const res = await db.projects.findUnique({
-      where: {
-        id,
-      },
+    const res = await db.projects.findFirstOrThrow({
+      where: { id },
     });
+    console.log(res);
     if (!res) throw new Error("Project not found");
     return res;
   } catch (error: any) {

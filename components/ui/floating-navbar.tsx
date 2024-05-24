@@ -12,6 +12,7 @@ import Link from "next/link";
 export const FloatingNav = ({
   navItems,
   className,
+  animated = true, // default value is true if not provided
 }: {
   navItems: {
     name: string;
@@ -19,23 +20,26 @@ export const FloatingNav = ({
     icon?: JSX.Element;
   }[];
   className?: string;
+  animated?: boolean;
 }) => {
   const { scrollYProgress } = useScroll();
 
   const [visible, setVisible] = useState(false);
 
   useMotionValueEvent(scrollYProgress, "change", (current) => {
-    // Check if current is not undefined and is a number
-    if (typeof current === "number") {
-      let direction = current! - scrollYProgress.getPrevious()!;
+    if (animated) {
+      // only respond to scroll event if animated is true
+      if (typeof current === "number") {
+        let direction = current! - scrollYProgress.getPrevious()!;
 
-      if (scrollYProgress.get() < 0.05) {
-        setVisible(false);
-      } else {
-        if (direction < 0) {
-          setVisible(true);
-        } else {
+        if (scrollYProgress.get() < 0.05) {
           setVisible(false);
+        } else {
+          if (direction < 0) {
+            setVisible(true);
+          } else {
+            setVisible(false);
+          }
         }
       }
     }
@@ -49,8 +53,8 @@ export const FloatingNav = ({
           y: -100,
         }}
         animate={{
-          y: visible ? 0 : -100,
-          opacity: visible ? 1 : 0,
+          y: animated ? (visible ? 0 : -100) : 0, // always 0 if animated is false
+          opacity: animated ? (visible ? 1 : 0) : 1, // always 1 if animated is false
         }}
         transition={{
           duration: 0.2,

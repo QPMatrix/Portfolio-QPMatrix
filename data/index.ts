@@ -4,7 +4,10 @@ export const navItems = [
   { name: "Testimonials", link: "#testimonials" },
   { name: "Contact", link: "#contact" },
 ];
-
+export const navItems2 = [
+  { name: "Home", link: "/" },
+  { name: "Projects", link: "/projects" },
+];
 export const gridItems = [
   {
     id: 1,
@@ -205,7 +208,7 @@ export const socialMedia = [
     link: "https://www.linkedin.com/in/hasantayar",
   },
   {
-    id: 3,
+    id: 4,
     img: "/wha.svg",
     link: "https://wa.link/zco2t3",
   },

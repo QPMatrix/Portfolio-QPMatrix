@@ -1,11 +1,13 @@
-import { projects } from "@/data";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { PinContainer } from "./ui/3d-pin";
 import { FaLocationArrow } from "react-icons/fa6";
-import Link from "next/link";
 import MagicButton from "./ui/magic-button";
+import { Projects } from "@prisma/client";
+import { getProjects } from "@/actions/project";
 
-const RecentProjects = () => {
+const RecentProjects = async () => {
+  const projects = await getProjects();
+  if (!projects) return null;
   return (
     <div className="py-20" id="projects">
       <h1 className="heading">
@@ -14,16 +16,19 @@ const RecentProjects = () => {
       </h1>
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
         {projects.map(
-          ({ id, title, des, img, iconLists, link, github }, idx) => (
+          (
+            { id, title, description, thumbnail, iconLists, link, github },
+            idx
+          ) => (
             <>
               {idx <= 3 && (
                 <div
                   key={id}
                   className="sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] sm:w-[570px] flex items-center justify-center  w-[80vw]"
                 >
-                  <PinContainer title={github ? "Repository" : "Website"}>
+                  <PinContainer title={`/project/${id}`}>
                     <a
-                      href={github ? github : link}
+                      href={`/projects/${id}`}
                       rel="nofollow noreferrer"
                       target="_blank"
                     >
@@ -32,16 +37,16 @@ const RecentProjects = () => {
                           <img src="/bg.png" alt="bg-img" />
                         </div>
                         <img
-                          src={img}
-                          alt={title}
-                          className="z-10 absolute bottom-0"
+                          src={thumbnail!}
+                          alt={title!}
+                          className="z-10 absolute bottom-0  object-contain w-[100%] h-[100%]"
                         />
                       </div>
                       <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
                         {title}
                       </h1>
                       <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2">
-                        {des}
+                        {description}
                       </p>
                       <div className="flex items-center justify-between mt-7 mb-3">
                         <div className="flex items-center">
@@ -58,15 +63,9 @@ const RecentProjects = () => {
                           ))}
                         </div>
                         <div className="flex justify-center items-center">
-                          {github ? (
-                            <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                              Check github repository
-                            </p>
-                          ) : (
-                            <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                              Check Live Site
-                            </p>
-                          )}
+                          <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                            Learn More
+                          </p>
 
                           <FaLocationArrow className="ms-3" color="#CBACF9" />
                         </div>
