@@ -3,7 +3,11 @@ import { db } from "@/utils/db";
 
 export const getProjects = async () => {
   try {
-    return await db.projects.findMany();
+    return await db.projects.findMany({
+      orderBy: {
+        created_at: "desc",
+      },
+    });
   } catch (error: any) {
     console.log(error.message);
   }

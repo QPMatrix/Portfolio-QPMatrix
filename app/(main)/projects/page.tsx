@@ -1,7 +1,9 @@
+import { getProjects } from "@/actions/project";
+import RecentProjects from "@/components/recent-projects";
 import React from "react";
 
-const Page = () => {
-  return <div>Page</div>;
+const Page = async () => {
+  return <RecentProjects type="Page" />;
 };
 
 export default Page;

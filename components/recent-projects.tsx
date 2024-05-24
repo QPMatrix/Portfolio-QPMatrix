@@ -4,16 +4,25 @@ import { FaLocationArrow } from "react-icons/fa6";
 import MagicButton from "./ui/magic-button";
 import { Projects } from "@prisma/client";
 import { getProjects } from "@/actions/project";
+import { cn } from "@/utils/cn";
 
-const RecentProjects = async () => {
+const RecentProjects = async ({ type }: { type: string }) => {
   const projects = await getProjects();
   if (!projects) return null;
   return (
-    <div className="py-20" id="projects">
-      <h1 className="heading">
-        A small selection of{" "}
-        <span className="text-purple">recent projects</span>
-      </h1>
+    <div
+      className={cn(type === "section" ? "py-20" : "py-20 mt-20")}
+      id="projects"
+    >
+      {type === "section" ? (
+        <h1 className="heading">
+          small selection of{" "}
+          <span className="text-purple">recent projects</span>
+        </h1>
+      ) : (
+        <h1 className="heading text-purple">Projects List</h1>
+      )}
+
       <div className="flex flex-wrap items-center justify-center p-4 gap-x-24 gap-y-8 mt-10">
         {projects.map(
           (
@@ -74,7 +83,8 @@ const RecentProjects = async () => {
                   </PinContainer>
                 </div>
               )}
-              {idx >= 4 && (
+
+              {type === "section" && idx >= 4 && (
                 <div className="flex mt-10">
                   <MagicButton
                     title="Show More"
