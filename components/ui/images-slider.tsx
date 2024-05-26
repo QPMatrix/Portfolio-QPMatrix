@@ -118,6 +118,7 @@ export const ImagesSlider = ({
 
   return (
     <div
+      id={currentIndex.toString()}
       className={cn(
         "overflow-hidden h-full w-full relative flex items-center justify-center",
         className
