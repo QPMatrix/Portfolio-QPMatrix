@@ -1,5 +1,6 @@
 "use server";
 import { db } from "@/utils/db";
+import { notFound } from "next/navigation";
 
 export const getProjects = async () => {
   try {
@@ -14,12 +15,17 @@ export const getProjects = async () => {
 };
 export const getProjectById = async (id: number) => {
   try {
-    const res = await db.projects.findFirstOrThrow({
+    let res = await db.projects.findFirst({
       where: { id },
     });
-    if (!res) throw new Error("Project not found");
+
+    if (!res) {
+      return null;
+    }
+
     return res;
   } catch (error: any) {
     console.log(error.message);
+    throw error;
   }
 };

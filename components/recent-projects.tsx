@@ -35,12 +35,8 @@ const RecentProjects = async ({ type }: { type: string }) => {
                   key={id}
                   className="sm:h-[41rem] lg:min-h-[32.5rem] h-[32rem] sm:w-[570px] flex items-center justify-center  w-[80vw]"
                 >
-                  <PinContainer title={`/project/${id}`}>
-                    <a
-                      href={`/projects/${id}`}
-                      rel="nofollow noreferrer"
-                      target="_blank"
-                    >
+                  <PinContainer title={`/project/${idx + 1}`}>
+                    <a href={`/projects/${id}`} rel="nofollow noreferrer">
                       <div className="relative flex items-center justify-center sm:w-[570px] sm:h-[40vh] w-[80vw] overflow-hidden h-[30vh]  mb-10">
                         <div className=" relative w-full h-full overflow-hidden lg:rounded-xl bg-[#13162d]">
                           <img src="/bg.png" alt="bg-img" />

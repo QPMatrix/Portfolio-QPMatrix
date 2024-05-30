@@ -6,8 +6,14 @@ import { ThemeProvider } from "@/components/theme-provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "QPMatrix",
-  description: "Modern  & Minimalist Matrix Client Portfolio",
+  title: {
+    default: "QPMatrix",
+    template: "%s - QPMatrix",
+  },
+  description: "Modern  & Minimalist Hasan Diab Portfolio",
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({

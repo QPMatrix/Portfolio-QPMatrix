@@ -1,7 +1,10 @@
 import { FloatingNav } from "@/components/ui/floating-navbar";
 import { navItems2 } from "@/data";
+import { Metadata } from "next";
 import React from "react";
-
+export const metadata: Metadata = {
+  title: "Projects",
+};
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
     <div className="flex min-h-screen">
