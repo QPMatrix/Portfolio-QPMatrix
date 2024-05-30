@@ -2,7 +2,6 @@ import { getProjectById, getProjects } from "@/actions/project";
 import ProjectPage from "@/components/project-page";
 
 import { Metadata } from "next";
-import { Projects as Project } from "@prisma/client";
 export interface Projects {
   params: { project: string };
   id: bigint;
@@ -32,8 +31,8 @@ export async function generateMetadata({
       images: [
         {
           url: res?.thumbnail!,
-          width: 800,
-          height: 600,
+          width: 1200,
+          height: 680,
           alt: res?.title!,
         },
       ],
