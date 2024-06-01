@@ -5,15 +5,18 @@ import MagicButton from "./ui/magic-button";
 import { Projects } from "@prisma/client";
 import { getProjects } from "@/actions/project";
 import { cn } from "@/utils/cn";
+import Link from "next/link";
 
-const RecentProjects = async ({ type }: { type: string }) => {
-  const projects = await getProjects();
+const RecentProjects = ({
+  type,
+  projects,
+}: {
+  type: string;
+  projects: Projects[];
+}) => {
   if (!projects) return null;
   return (
-    <div
-      className={cn(type === "section" ? "py-20" : "py-20 mt-20")}
-      id="projects"
-    >
+    <div className={cn(type === "section" ? "py-20" : "py-5")} id="projects">
       {type === "section" ? (
         <h1 className="heading">
           small selection of{" "}
@@ -82,11 +85,13 @@ const RecentProjects = async ({ type }: { type: string }) => {
 
               {type === "section" && idx >= 4 && (
                 <div className="flex mt-10">
-                  <MagicButton
-                    title="Show More"
-                    icon={<FaLocationArrow />}
-                    position="right"
-                  />
+                  <Link href="/projects">
+                    <MagicButton
+                      title="Show More"
+                      icon={<FaLocationArrow />}
+                      position="right"
+                    />
+                  </Link>
                 </div>
               )}
             </>

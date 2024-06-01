@@ -4,7 +4,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ["bwcbpofuqlgtbniegmlt.supabase.co"],
+    domains: ["bwcbpofuqlgtbniegmlt.supabase.co", "qpmatrix.vercel.app"],
   },
 };
 

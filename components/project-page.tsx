@@ -1,10 +1,17 @@
 "use client";
+import "swiper/css";
+
+import SwiperCore from "swiper/core";
+import "@/app/globals.css";
 import { getProjectById } from "@/actions/project";
 import React, { useEffect, useState } from "react";
-import { ImagesSlider } from "./ui/images-slider";
-import Image from "next/image";
 import { notFound } from "next/navigation";
-import { GetServerSideProps } from "next";
+import { Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import Link from "next/link";
+import MagicButton from "./ui/magic-button";
+import { FaGithub, FaWebflow } from "react-icons/fa6";
 interface Projects {
   params: { project: string };
   id: bigint;
@@ -24,6 +31,7 @@ interface Projects {
 
 const ProjectPage = ({ id }: { id: number }) => {
   const [data, setData] = useState<Projects | undefined>();
+  SwiperCore.use([Pagination]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -47,53 +55,74 @@ const ProjectPage = ({ id }: { id: number }) => {
   ];
 
   return (
-    <div className="flex justify-center space-y-10 items-center">
-      <div className="container  mx-auto  px-4 f-full bg-black-100">
-        <h1 className="heading">{title}</h1>
-        <p className="text-center leading-10 text-wrap text-clip">
-          {description}
-        </p>
-        <div className="flex flex-row mt-10  justify-center items-center">
-          {iconLists &&
-            iconLists.map((icon, idx) => (
-              <div key={idx} className="mx-4">
-                <Image
-                  src={icon}
-                  alt={`icon-${idx}`}
-                  width={50}
-                  height={50}
-                  quality={100}
-                />
-              </div>
-            ))}
+    <div className="flex flex-col items-center justify-center px-4 md:px-0">
+      <h1 className="text-2xl md:text-4xl text-purple font-bold line-clamp-1">
+        {title}
+      </h1>
+      <div className="relative flex items-center justify-center sm:w-[570px] sm:h-[40vh] w-full h-[30vh] overflow-hidden mb-10">
+        <div className="relative w-full h-full overflow-hidden lg:rounded-xl bg-[#13162d]">
+          <img src="/bg.png" alt="bg-img" />
         </div>
-        <div className="flex flex-row justify-center space-x-4 mt-10">
-          {link && (
-            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              <a href={link} target="_blank">
-                <span>Live Preview</span>
-              </a>
-            </button>
-          )}
-          {github && (
-            <button className="inline-flex h-12 animate-shimmer items-center justify-center rounded-md border border-slate-800 bg-[linear-gradient(110deg,#000103,45%,#1e2631,55%,#000103)] bg-[length:200%_100%] px-6 font-medium text-slate-400 transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-              <a href={github} target="_blank">
-                <span>View Source</span>
-              </a>
-            </button>
-          )}
+        <img
+          src={thumbnail!}
+          alt={title!}
+          className="z-10 absolute bottom-0 object-contain w-full h-full"
+        />
+      </div>
+      <p className="text-sm md:text-lg text-center font-light">{description}</p>
+      <div className="flex items-center justify-between mt-7 mb-3">
+        <div className="flex items-center">
+          {iconLists.map((icon, index) => (
+            <div
+              key={icon}
+              className="border border-white/[0.2] rounded-full bg-black lg:w-20 lg:h-20 w-14 h-14 flex justify-center items-center"
+              style={{
+                transform: `translateX(-${10 * index * 2})px`,
+              }}
+            >
+              <img src={icon} alt={icon} className="p-2" />
+            </div>
+          ))}
         </div>
-
-        {images && images.ios && images.android && (
-          <div className="mt-2 ">
-            <ImagesSlider
-              images={allImages}
-              className="h-[40rem]"
-              direction="down"
+      </div>
+      <div className="flex flex-col md:flex-row items-center mt-7 mb-3 justify-between">
+        {link && (
+          <Link href={link}>
+            <MagicButton
+              title={"Visit Website"}
+              icon={<FaWebflow />}
+              position={"right"}
             />
-          </div>
+          </Link>
+        )}
+        <div className="mr-5" />
+        {github && (
+          <Link href={github}>
+            <MagicButton
+              title={"Github"}
+              icon={<FaGithub />}
+              position={"right"}
+            />
+          </Link>
         )}
       </div>
+      {allImages.length > 0 && (
+        <Swiper
+          slidesPerView={"auto"}
+          centeredSlides={true}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          className="mySwiper"
+        >
+          {allImages.map((img, index) => (
+            <SwiperSlide key={index}>
+              <img src={img} alt={index.toString()} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 };

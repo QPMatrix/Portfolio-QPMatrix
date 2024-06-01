@@ -1,6 +1,5 @@
 "use server";
 import { db } from "@/utils/db";
-import { notFound } from "next/navigation";
 
 export const getProjects = async () => {
   try {
