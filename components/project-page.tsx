@@ -110,7 +110,8 @@ const ProjectPage = ({ id }: { id: number }) => {
         <Swiper
           slidesPerView={"auto"}
           centeredSlides={true}
-          spaceBetween={30}
+          spaceBetween={0}
+          property="images"
           pagination={{
             clickable: true,
           }}
